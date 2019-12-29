@@ -1,6 +1,7 @@
 package jPetStoreTests.page.objects;
 
 import jPetStoreTests.DriverManager;
+import jPetStoreTests.WaitForElement;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
@@ -29,6 +30,7 @@ public class FishListPage {
 
     public void clickOnAngelfishProductIdLink() {
         logger.info("clicking on angelFishProductLink");
+        WaitForElement.waitUntilElementIsClickable(angelFishProductIdLink);
         angelFishProductIdLink.click();
     }
 

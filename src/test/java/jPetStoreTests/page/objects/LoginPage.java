@@ -37,7 +37,6 @@ public class LoginPage {
 
     public void typeInToPasswordField(String password) {
         logger.info("typing password into passwordInputField");
-//        WebElement passwordField = webDriver.findElement(By.cssSelector("input[name='password']"));
         passwordInputField.clear();
         passwordInputField.sendKeys(password);
     }

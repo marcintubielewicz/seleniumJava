@@ -1,6 +1,7 @@
 package jPetStoreTests.page.objects;
 
 import jPetStoreTests.DriverManager;
+import jPetStoreTests.WaitForElement;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
@@ -22,7 +23,8 @@ public class AngelFishListPage {
     }
 
     public void clickOnLargeAngelfishAddToCartButton() {
-
+        logger.info("clicking on adToCartButton");
+        WaitForElement.waitUntilElementIsClickable(largeAngelfishAddToCartButton);
         largeAngelfishAddToCartButton.click();
     }
 

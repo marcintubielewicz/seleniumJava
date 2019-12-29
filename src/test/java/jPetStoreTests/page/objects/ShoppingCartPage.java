@@ -1,6 +1,7 @@
 package jPetStoreTests.page.objects;
 
 import jPetStoreTests.DriverManager;
+import jPetStoreTests.WaitForElement;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
@@ -28,6 +29,7 @@ public class ShoppingCartPage {
 
     public boolean isWarningMessageDisplayed() {
         logger.info("verify if warningMessage for unlogged user is displayed");
+        WaitForElement.waitUntilElementIsVisible(warningMessage);
         return warningMessage.isDisplayed();
     }
 }
