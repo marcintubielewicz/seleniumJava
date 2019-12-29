@@ -14,8 +14,6 @@ public class DriverManager {
     public static WebDriver getWebDriver() {
 
         if (webDriver == null) {
-//            System.setProperty("webdriver.chrome.driver", "/Users/marcin.tubielewicz/IdeaProjects/seleniumIntro/chromedriver");
-//            webDriver = new ChromeDriver();
             webDriver = BrowserFactory.getBrowser(BROWSER_TYPE);
         }
         return webDriver;
@@ -23,7 +21,7 @@ public class DriverManager {
 
     public static void disposeWebDriver() {
         webDriver.close();
-        if (!BROWSER_TYPE.equals(BrowserType.FIREFOX)){
+        if (!BROWSER_TYPE.equals(BrowserType.FIREFOX)) {
             webDriver.quit();
         }
         webDriver = null;

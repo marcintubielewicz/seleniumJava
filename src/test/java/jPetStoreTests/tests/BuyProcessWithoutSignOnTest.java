@@ -24,10 +24,6 @@ public class BuyProcessWithoutSignOnTest extends TestBase {
         ShoppingCartPage shoppingCartPage = new ShoppingCartPage();
         shoppingCartPage.clickOnProceedToCheckoutButton();
 
-//        mainPage.clickOnAngelFishProductIdLink();
-//        mainPage.clickOnLargeAngelfishAddToCartButton();
-//        mainPage.clickOnProceedToCheckoutButton();
-
         assertTrue(shoppingCartPage.isWarningMessageDisplayed(), "You must sign on before attempting to check out. Please sign on and try checking out again.");
     }
 }

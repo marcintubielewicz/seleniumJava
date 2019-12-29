@@ -8,12 +8,10 @@ import org.testng.annotations.Test;
 
 import static org.testng.AssertJUnit.assertTrue;
 
-public class PositiveLoginTest extends TestBase{
-
-//    private WebDriver webDriver;
+public class PositiveLoginTest extends TestBase {
 
     @Test
-    public void asRegisteredUserLoginUsingValidLoginAndPassword(){
+    public void asRegisteredUserLoginUsingValidLoginAndPassword() {
         EnterTheStorePage enterTheStorePage = new EnterTheStorePage();
         enterTheStorePage.clickOnEnterTheStoreLink();
 
