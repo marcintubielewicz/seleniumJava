@@ -1,10 +1,7 @@
 package jPetStoreTests;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -26,6 +23,7 @@ public class FailedLoginTest {
     @Test
     public void tryToLogInWithIncorrectLoginAndPassword(){
         EnterTheStorePage enterTheStorePage = new EnterTheStorePage(webDriver);
+//        PageFactory.initElements(webDriver,enterTheStorePage);
         enterTheStorePage.clickOnEnterTheStoreLink();
 
 //        WebElement enterTheStoreLink = webDriver.findElement(By.cssSelector("a[href*=\"actions\"]"));
@@ -34,14 +32,16 @@ public class FailedLoginTest {
         assertEquals(webDriver.getTitle(),"JPetStore Demo");
 
         TopMenuPage  topMenuPage = new TopMenuPage(webDriver);
+//        PageFactory.initElements(webDriver,topMenuPage);
         topMenuPage.clickOnSignInLink();
 
 //        WebElement signOnLink = webDriver.findElement(By.cssSelector("a[href*=\"signonForm\"]"));
 //        signOnLink.click();
 
         LoginPage loginPage = new LoginPage(webDriver);
-        loginPage.typeInToUsernameField();
-        loginPage.typeInToPasswordField();
+//        PageFactory.initElements(webDriver,loginPage);
+        loginPage.typeInToUsernameField("admin");
+        loginPage.typeInToPasswordField("1234");
         loginPage.clickOnLoginButton();
 
         assertEquals(loginPage.getWarningMessage(),"Invalid username or password. Signon failed.");
@@ -59,6 +59,23 @@ public class FailedLoginTest {
 //        WebElement message = webDriver.findElement(By.cssSelector("#Content ul[class='messages'] > li"));
 //        assertEquals(message.getText(),"Invalid username or password. Signon failed.");
 
+    }
+
+    @Test
+    public void asRegisteredUserLoginUsingValidLoginAndPassword(){
+        EnterTheStorePage enterTheStorePage = new EnterTheStorePage(webDriver);
+        enterTheStorePage.clickOnEnterTheStoreLink();
+
+        TopMenuPage topMenuPage = new TopMenuPage(webDriver);
+        topMenuPage.clickOnSignInLink();
+
+        LoginPage loginPage = new LoginPage(webDriver);
+        loginPage.typeInToUsernameField("j2ee");
+        loginPage.typeInToPasswordField("j2ee");
+        loginPage.clickOnLoginButton();
+
+        BottomMenuPage bottomMenuPage = new BottomMenuPage(webDriver);
+        assertTrue(bottomMenuPage.isBannerAfterValidLoginDisplayed());
     }
 
     @AfterTest

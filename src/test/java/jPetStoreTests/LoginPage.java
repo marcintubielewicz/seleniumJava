@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
 
@@ -17,18 +18,19 @@ public class LoginPage {
 
     public LoginPage(WebDriver webDriver){
         this.webDriver = webDriver;
+        PageFactory.initElements(webDriver,this);
     }
 
-    public void typeInToUsernameField() {
+    public void typeInToUsernameField(String username) {
 //        WebElement usernameField = webDriver.findElement(By.cssSelector("input[name='username']"));
         usernameInputField.clear();
-        usernameInputField.sendKeys("admin");
+        usernameInputField.sendKeys(username);
     }
 
-    public void typeInToPasswordField() {
+    public void typeInToPasswordField(String password) {
 //        WebElement passwordField = webDriver.findElement(By.cssSelector("input[name='password']"));
         passwordInputField.clear();
-        passwordInputField.sendKeys("1234");
+        passwordInputField.sendKeys(password);
     }
 
     public void clickOnLoginButton(){
