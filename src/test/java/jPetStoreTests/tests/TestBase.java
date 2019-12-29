@@ -1,7 +1,7 @@
 package jPetStoreTests.tests;
 
+import jPetStoreTests.DriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
@@ -13,16 +13,19 @@ public class TestBase {
 
     @BeforeTest
     public void beforeTest() {
-        System.setProperty("webdriver.chrome.driver", "/Users/marcin.tubielewicz/IdeaProjects/seleniumIntro/chromedriver");
-        webDriver = new ChromeDriver();
+//        System.setProperty("webdriver.chrome.driver", "/Users/marcin.tubielewicz/IdeaProjects/seleniumIntro/chromedriver");
+//        webDriver = new ChromeDriver();
+        webDriver = DriverManager.getWebDriver();
         webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        webDriver.manage().window().maximize();
 
         webDriver.navigate().to("http://przyklady.javastart.pl/jpetstore/");
     }
 
     @AfterTest
     public void afterTest(){
-        webDriver.close();
-        webDriver.quit();
+        DriverManager.disposeWebDriver();
+//        webDriver.close();
+//        webDriver.quit();
     }
 }

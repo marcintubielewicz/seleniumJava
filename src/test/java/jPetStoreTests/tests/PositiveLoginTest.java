@@ -14,18 +14,18 @@ public class PositiveLoginTest extends TestBase{
 
     @Test
     public void asRegisteredUserLoginUsingValidLoginAndPassword(){
-        EnterTheStorePage enterTheStorePage = new EnterTheStorePage(webDriver);
+        EnterTheStorePage enterTheStorePage = new EnterTheStorePage();
         enterTheStorePage.clickOnEnterTheStoreLink();
 
-        TopMenuPage topMenuPage = new TopMenuPage(webDriver);
+        TopMenuPage topMenuPage = new TopMenuPage();
         topMenuPage.clickOnSignInLink();
 
-        LoginPage loginPage = new LoginPage(webDriver);
+        LoginPage loginPage = new LoginPage();
         loginPage.typeInToUsernameField("j2ee");
         loginPage.typeInToPasswordField("j2ee");
         loginPage.clickOnLoginButton();
 
-        BottomMenuPage bottomMenuPage = new BottomMenuPage(webDriver);
+        BottomMenuPage bottomMenuPage = new BottomMenuPage();
         assertTrue(bottomMenuPage.isBannerAfterValidLoginDisplayed());
     }
 }

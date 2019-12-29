@@ -1,7 +1,6 @@
 package jPetStoreTests.page.objects;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import jPetStoreTests.DriverManager;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -14,11 +13,16 @@ public class LoginPage {
     @FindBy(name = "password")
     private WebElement passwordInputField;
 
-    private WebDriver webDriver;
+    @FindBy(name = "signon")
+    private WebElement loginButton;
 
-    public LoginPage(WebDriver webDriver){
-        this.webDriver = webDriver;
-        PageFactory.initElements(webDriver,this);
+    @FindBy(css = "#Content ul[class='messages'] > li")
+    private WebElement warningMessageText;
+//    private WebDriver webDriver;
+
+    public LoginPage(){
+//        this.webDriver = webDriver;
+        PageFactory.initElements(DriverManager.getWebDriver(),this);
     }
 
     public void typeInToUsernameField(String username) {
@@ -34,13 +38,13 @@ public class LoginPage {
     }
 
     public void clickOnLoginButton(){
-        WebElement loginButton = webDriver.findElement(By.name("signon"));
+//        WebElement loginButton = webDriver.findElement(By.name("signon"));
         loginButton.click();
     }
 
     public String getWarningMessage() {
-        WebElement message = webDriver.findElement(By.cssSelector("#Content ul[class='messages'] > li"));
-        String warningMessage = message.getText();
+//        WebElement message = webDriver.findElement(By.cssSelector("#Content ul[class='messages'] > li"));
+        String warningMessage = warningMessageText.getText();
         return warningMessage;
     }
 }

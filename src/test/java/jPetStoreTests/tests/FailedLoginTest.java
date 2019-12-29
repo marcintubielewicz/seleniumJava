@@ -20,7 +20,7 @@ public class FailedLoginTest extends TestBase{
 
     @Test
     public void tryToLogInWithIncorrectLoginAndPassword(){
-        EnterTheStorePage enterTheStorePage = new EnterTheStorePage(webDriver);
+        EnterTheStorePage enterTheStorePage = new EnterTheStorePage();
 //        PageFactory.initElements(webDriver,enterTheStorePage);
         enterTheStorePage.clickOnEnterTheStoreLink();
 
@@ -29,14 +29,14 @@ public class FailedLoginTest extends TestBase{
 
 //        assertEquals(webDriver.getTitle(),"JPetStore Demo");
 
-        TopMenuPage topMenuPage = new TopMenuPage(webDriver);
+        TopMenuPage topMenuPage = new TopMenuPage();
 //        PageFactory.initElements(webDriver,topMenuPage);
         topMenuPage.clickOnSignInLink();
 
 //        WebElement signOnLink = webDriver.findElement(By.cssSelector("a[href*=\"signonForm\"]"));
 //        signOnLink.click();
 
-        LoginPage loginPage = new LoginPage(webDriver);
+        LoginPage loginPage = new LoginPage();
 //        PageFactory.initElements(webDriver,loginPage);
         loginPage.typeInToUsernameField("admin");
         loginPage.typeInToPasswordField("1234");

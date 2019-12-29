@@ -9,19 +9,19 @@ public class BuyProcessWithoutSignOnTest extends TestBase {
 
     @Test
     public void asNotLoggedUseBuyAndTryProceedToCheckout() {
-        EnterTheStorePage enterTheStorePage = new EnterTheStorePage(webDriver);
+        EnterTheStorePage enterTheStorePage = new EnterTheStorePage();
         enterTheStorePage.clickOnEnterTheStoreLink();
 
-        MainPage mainPage = new MainPage(webDriver);
+        MainPage mainPage = new MainPage();
         mainPage.clickOnSidebarMenuFishLink();
 
-        FishListPage fishListPage = new FishListPage(webDriver);
+        FishListPage fishListPage = new FishListPage();
         fishListPage.clickOnAngelfishProductIdLink();
 
-        AngelFishListPage angelFishListPage = new AngelFishListPage(webDriver);
+        AngelFishListPage angelFishListPage = new AngelFishListPage();
         angelFishListPage.clickOnLargeAngelfishAddToCartButton();
 
-        ShoppingCartPage shoppingCartPage = new ShoppingCartPage(webDriver);
+        ShoppingCartPage shoppingCartPage = new ShoppingCartPage();
         shoppingCartPage.clickOnProceedToCheckoutButton();
 
 //        mainPage.clickOnAngelFishProductIdLink();
