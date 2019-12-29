@@ -13,15 +13,17 @@ public class AngelFishListPage {
     @FindBy(css = "a[href$='workingItemId=EST-1']")
     private WebElement smallAngelfishAddToCartButton;
 
+
+
 //    private WebDriver webDriver;
 
-    public AngelFishListPage(){
+    public AngelFishListPage() {
 //        this.webDriver = webDriver;
 //        PageFactory.initElements(webDriver,this);
         PageFactory.initElements(DriverManager.getWebDriver(), this);
     }
 
-    public void clickOnLargeAngelfishAddToCartButton(){
+    public void clickOnLargeAngelfishAddToCartButton() {
         largeAngelfishAddToCartButton.click();
     }
 
